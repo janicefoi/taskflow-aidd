@@ -1,3 +1,5 @@
+import { Timestamp } from 'firebase/firestore';
+
 export interface User {
   uid: string;
   email: string | null;
@@ -6,11 +8,11 @@ export interface User {
 
 export interface Task {
   id: string;
-  userId: string;
   title: string;
   description: string;
   priority: 'high' | 'medium' | 'low';
-  dueDate: Date | null;
+  dueDate: string; // YYYY-MM-DD format
   completed: boolean;
-  createdAt: Date;
+  userId: string;
+  createdAt: Timestamp;
 }
